@@ -1,0 +1,101 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#e3e3e3;
+}
+
+.container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login {
+    color:#000;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    display:block;
+    font-weight:bold;
+    font-size:2rem;
+}
+
+.card {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:350px;
+    width:300px;
+    flex-direction:column;
+    gap:35px;
+    background:#e3e3e3;
+    box-shadow:
+        16px 16px 32px #c8c8c8,
+        -16px -16px 32px #fefefe;
+    border-radius:8px;
+    padding:30px;
+}
+
+.inputBox {
+    position:relative;
+    width:250px;
+}
+
+.inputBox input {
+    width:100%;
+    padding:10px;
+    outline:none;
+    border:none;
+    color:#000;
+    font-size:1em;
+    background:transparent;
+    border-left:2px solid #000;
+    border-bottom:2px solid #000;
+    border-bottom-left-radius:8px;
+}
+
+.inputBox span {
+    position:absolute;
+    left:0;
+    top:0;
+    padding:10px;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    pointer-events:none;
+}
+
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span{
+    transform:translateX(110px) translateY(-15px);
+    font-size:.75em;
+    background:#000;
+    color:#fff;
+    padding:5px 10px;
+    border-radius:4px;
+}
+
+.enter {
+    height:45px;
+    width:100px;
+    border-radius:5px;
+    border:2px solid #000;
+    cursor:pointer;
+    background:transparent;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.enter:hover{
+    background:#000;
+    color:#fff;
+}
