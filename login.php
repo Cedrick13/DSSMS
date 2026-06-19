@@ -17,8 +17,9 @@ if(isset($_POST['login'])){
 
         $user = mysqli_fetch_assoc($query);
 
-        if(password_verify($password,$user['password'])){
-
+        if($password == $user['password']){
+            // login success
+        }
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['fullname'] = $user['fullname'];
             $_SESSION['role'] = $user['role'];
@@ -33,7 +34,6 @@ if(isset($_POST['login'])){
     }else{
         $error = "User not found";
     }
-}
 ?>
 
 <!DOCTYPE html>
