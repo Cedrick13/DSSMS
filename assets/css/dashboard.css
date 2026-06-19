@@ -93,3 +93,18 @@ body{
     flex:1;
     padding:30px;
 }
+
+.sidebar.collapsed .text,
+.sidebar.collapsed .menu-title,
+.sidebar.collapsed .logo h2,
+.sidebar.collapsed .submenu{
+    display:none;
+}
+
+.sidebar.collapsed .menu a{
+    justify-content:center;
+}
+
+.sidebar.collapsed .icon{
+    margin:0;
+}
