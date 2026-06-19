@@ -75,6 +75,20 @@ body{
     min-width:24px;
 }
 
+.arrow{
+    margin-left:auto;
+    font-size:12px;
+    transition:0.3s;
+}
+
+.has-submenu.active .arrow{
+    transform:rotate(180deg);
+}
+
+.sidebar.collapsed .arrow{
+    display:none;
+}
+
 /* Hide submenu by default */
 .submenu{
     display:none;

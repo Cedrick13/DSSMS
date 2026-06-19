@@ -19,6 +19,7 @@
             <a href="#">
                 <span class="icon">👤</span>
                 <span class="text">Users</span>
+                <span class="arrow">▼</span>
             </a>
 
             <ul class="submenu">
