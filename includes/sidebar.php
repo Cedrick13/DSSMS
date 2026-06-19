@@ -61,4 +61,9 @@
         </li>
     </ul>
 
+<div class="sidebar-footer">
+    © <?php echo date('Y'); ?> Ced<br>
+    All rights reserved.
+</div>
+
 </div>
