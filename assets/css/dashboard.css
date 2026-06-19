@@ -1,50 +1,95 @@
-body{
+*{
     margin:0;
-    font-family:Arial, sans-serif;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    display:flex;
+    background:#f5f6fa;
 }
 
 .sidebar{
-    position:fixed;
-    left:0;
-    top:0;
-    width:250px;
+    width:260px;
     height:100vh;
-    background:#1f2937;
-    color:white;
+    background:#fff;
+    box-shadow:0 0 15px rgba(0,0,0,.1);
     padding:20px;
+    transition:.3s;
 }
 
-.sidebar h2{
-    text-align:center;
+.sidebar.collapsed{
+    width:80px;
 }
 
-.sidebar ul{
+.logo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.logo h2{
+    color:#222;
+}
+
+#toggleBtn{
+    border:none;
+    background:none;
+    cursor:pointer;
+    font-size:20px;
+}
+
+.menu-title{
+    display:block;
+    color:#888;
+    font-size:12px;
+    margin:20px 0 10px;
+}
+
+.menu{
     list-style:none;
-    padding:0;
 }
 
-.sidebar ul li{
-    margin:15px 0;
+.menu li{
+    margin:5px 0;
 }
 
-.sidebar ul li a{
-    color:white;
+.menu li a{
+    display:flex;
+    align-items:center;
+    gap:12px;
     text-decoration:none;
+    color:#333;
+    padding:12px;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.menu li a:hover{
+    background:#f0f2f5;
+}
+
+.icon{
+    min-width:24px;
+}
+
+.submenu{
+    margin-left:40px;
+    margin-top:5px;
+}
+
+.submenu li{
+    list-style:none;
+}
+
+.submenu a{
+    padding:8px;
+    font-size:14px;
 }
 
 .main-content{
-    margin-left:270px;
-    padding:20px;
-}
-
-.cards{
-    display:flex;
-    gap:20px;
-}
-
-.card{
-    background:#f5f5f5;
-    padding:20px;
-    border-radius:10px;
-    width:200px;
+    flex:1;
+    padding:30px;
 }

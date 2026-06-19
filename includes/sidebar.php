@@ -1,17 +1,63 @@
-<div class="sidebar">
-    <h2>DSSMS</h2>
+<div class="sidebar" id="sidebar">
 
-    <ul>
-        <li><a href="dashboard.php">Dashboard</a></li>
+    <div class="logo">
+        <h2>DSSMS</h2>
+        <button id="toggleBtn">☰</button>
+    </div>
 
-        <li><a href="modules/users/index.php">Users</a></li>
+    <span class="menu-title">MAIN</span>
 
-        <li><a href="modules/documents/index.php">Documents</a></li>
+    <ul class="menu">
+        <li>
+            <a href="dashboard.php">
+                <span class="icon">🏠</span>
+                <span class="text">Dashboard</span>
+            </a>
+        </li>
 
-        <li><a href="modules/categories/index.php">Categories</a></li>
+        <li class="dropdown">
+            <a href="#">
+                <span class="icon">👤</span>
+                <span class="text">Users</span>
+            </a>
 
-        <li><a href="modules/reports/daily.php">Reports</a></li>
+            <ul class="submenu">
+                <li><a href="modules/users/add.php">Add User</a></li>
+                <li><a href="modules/users/index.php">Manage Users</a></li>
+            </ul>
+        </li>
 
-        <li><a href="logout.php">Logout</a></li>
+        <li>
+            <a href="modules/documents/index.php">
+                <span class="icon">📄</span>
+                <span class="text">Documents</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="modules/categories/index.php">
+                <span class="icon">📁</span>
+                <span class="text">Categories</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="modules/reports/daily.php">
+                <span class="icon">📊</span>
+                <span class="text">Reports</span>
+            </a>
+        </li>
     </ul>
+
+    <span class="menu-title">SETTINGS</span>
+
+    <ul class="menu">
+        <li>
+            <a href="logout.php">
+                <span class="icon">🚪</span>
+                <span class="text">Logout</span>
+            </a>
+        </li>
+    </ul>
+
 </div>
