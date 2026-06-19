@@ -15,7 +15,7 @@
             </a>
         </li>
 
-        <li class="dropdown">
+        <li class="menu-item has-submenu">
             <a href="#">
                 <span class="icon">👤</span>
                 <span class="text">Users</span>
