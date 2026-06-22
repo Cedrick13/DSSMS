@@ -74,43 +74,79 @@ include 'includes/sidebar.php';
     </div>
 
     <!-- Recent Files -->
-    <div class="recent-files">
+ <div class="recent-files">
 
+    <div class="table-header">
         <h3>Recent Documents</h3>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>File Name</th>
-                    <th>Date Uploaded</th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-            <?php
-            $query = mysqli_query($conn,
-                "SELECT * FROM documents
-                 ORDER BY id DESC
-                 LIMIT 5");
-
-            while($row = mysqli_fetch_assoc($query)){
-            ?>
-                <tr>
-                    <td>
-    <a href="assets/uploads/documents/<?= $row['file_path']; ?>"
-       target="_blank">
-       <?= $row['file_name']; ?>
-    </a>
-</td>
-                    <td><?= $row['upload_date']; ?></td>
-                </tr>
-            <?php } ?>
-
-            </tbody>
-        </table>
-
+        <div class="table-actions">
+            <input type="text" placeholder="Search...">
+            <button>Filters</button>
+        </div>
     </div>
+
+    <table class="documents-table">
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>Type</th>
+                <th>Date Uploaded</th>
+                <th>Uploaded By</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+        <?php
+        $query = mysqli_query($conn,"
+            SELECT documents.*, users.username
+            FROM documents
+            LEFT JOIN users ON documents.user_id = users.id
+            ORDER BY documents.id DESC
+            LIMIT 5
+        ");
+
+        while($row = mysqli_fetch_assoc($query)){
+
+            $extension = strtoupper(pathinfo($row['file_name'], PATHINFO_EXTENSION));
+        ?>
+            <tr>
+
+                <td>
+                    <i class="fas fa-file-alt file-icon"></i>
+                    <?= $row['file_name']; ?>
+                </td>
+
+                <td>
+                    <span class="doc-badge">
+                        <?= $extension; ?>
+                    </span>
+                </td>
+
+                <td>
+                    <?= date('M d, Y', strtotime($row['upload_date'])); ?>
+                </td>
+
+                <td>
+                    <?= $row['username']; ?>
+                </td>
+
+                <td>
+                    <a href="assets/uploads/documents/<?= $row['file_path']; ?>"
+                       target="_blank"
+                       class="view-btn">
+                        View
+                    </a>
+                </td>
+
+            </tr>
+        <?php } ?>
+
+        </tbody>
+    </table>
+
+</div>
 
 </div>
 
