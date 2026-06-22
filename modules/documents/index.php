@@ -24,8 +24,18 @@ $query = mysqli_query($conn,"
 <div class="documents-container">
 
     <div class="page-header">
-        <h2><i class="fas fa-folder-open"></i> Documents</h2>
-    </div>
+    
+    <h2>
+        <i class="fas fa-folder-open"></i>
+        Documents
+    </h2>
+
+    <a href="../../dashboard.php" class="back-btn">
+        <i class="fas fa-arrow-left"></i>
+        Dashboard
+    </a>
+
+</div>
 
     <div class="table-card">
 

@@ -139,3 +139,19 @@ tbody tr:hover{
 .delete-btn:hover{
     background:#dc2626;
 }
+
+.back-btn{
+    background:#64748b;
+    color:white;
+    text-decoration:none;
+    padding:10px 16px;
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#475569;
+}
