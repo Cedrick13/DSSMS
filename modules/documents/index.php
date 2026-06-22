@@ -32,7 +32,7 @@ $query = mysqli_query($conn,"
 
     <a href="../../dashboard.php" class="back-btn">
         <i class="fas fa-arrow-left"></i>
-        Dashboard
+        Back
     </a>
 
 </div>
