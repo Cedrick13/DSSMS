@@ -42,12 +42,13 @@ body{
 .table-card{
     background:white;
     border-radius:15px;
-    overflow:hidden;
+    overflow-x:auto;
     box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
 table{
     width:100%;
+    min-width:800px;
     border-collapse:collapse;
 }
 
@@ -154,4 +155,80 @@ tbody tr:hover{
 
 .back-btn:hover{
     background:#475569;
+}
+
+@media (max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .page-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .back-btn{
+        width:100%;
+        justify-content:center;
+    }
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr{
+        display:block;
+        width:100%;
+    }
+
+    thead{
+        display:none;
+    }
+
+    tbody tr{
+        background:#fff;
+        margin-bottom:15px;
+        border-radius:12px;
+        padding:15px;
+        box-shadow:0 2px 8px rgba(0,0,0,.08);
+    }
+
+    td{
+        border:none;
+        padding:8px 0;
+        text-align:left;
+    }
+
+    td:nth-child(1)::before{
+        content:"File Name: ";
+        font-weight:600;
+    }
+
+    td:nth-child(2)::before{
+        content:"Uploaded By: ";
+        font-weight:600;
+    }
+
+    td:nth-child(3)::before{
+        content:"Date: ";
+        font-weight:600;
+    }
+
+    td:nth-child(4)::before{
+        content:"Action: ";
+        font-weight:600;
+        display:block;
+        margin-bottom:8px;
+    }
+
+    .view-btn,
+    .download-btn,
+    .delete-btn{
+        display:inline-block;
+        margin-top:5px;
+        margin-right:5px;
+    }
 }
