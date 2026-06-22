@@ -10,7 +10,9 @@ include 'config/database.php';
 
 // Counts
 $totalUsers = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total FROM users"))['total'];
-$totalDocuments = 0;
+$totalDocuments = mysqli_fetch_assoc(
+    mysqli_query($conn,"SELECT COUNT(*) AS total FROM documents")
+)['total'];
 $totalCategories = 0;
 
 include 'includes/header.php';
@@ -20,6 +22,12 @@ include 'includes/sidebar.php';
 <div class="main-content">
 
     <h2>Dashboard</h2>
+
+    <?php if(isset($_GET['upload'])): ?>
+    <div class="success-msg">
+        Document uploaded successfully!
+    </div>
+<?php endif; ?>
 
     <!-- Statistics -->
     <div class="dashboard-cards">
@@ -89,7 +97,12 @@ include 'includes/sidebar.php';
             while($row = mysqli_fetch_assoc($query)){
             ?>
                 <tr>
-                    <td><?= $row['file_name']; ?></td>
+                    <td>
+    <a href="assets/uploads/documents/<?= $row['file_path']; ?>"
+       target="_blank">
+       <?= $row['file_name']; ?>
+    </a>
+</td>
                     <td><?= $row['upload_date']; ?></td>
                 </tr>
             <?php } ?>
