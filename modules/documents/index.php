@@ -91,27 +91,31 @@ $query = mysqli_query($conn,"
                         strtotime($row['upload_date'])) ?>
                     </td>
 
-                    <td>
+                <td>
+    <div class="action-buttons">
 
-                        <a class="view-btn"
-                        href="../../assets/uploads/documents/<?= $row['file_path'] ?>"
-                        target="_blank">
-                        <i class="fas fa-eye"></i> View
-                        </a>
+        <a class="view-btn"
+        href="../../assets/uploads/documents/<?= $row['file_path'] ?>"
+        target="_blank">
+            <i class="fas fa-eye"></i>
+            View
+        </a>
 
-                        <a class="download-btn"
-                        href="../../assets/uploads/documents/<?= $row['file_path'] ?>"
-                        download>
-                        <i class="fas fa-download"></i> Download
-                        </a>
+        <a class="download-btn"
+        href="../../assets/uploads/documents/<?= $row['file_path'] ?>"
+        download>
+            <i class="fas fa-download"></i>
+            Download
+        </a>
 
-                        <a class="delete-btn"
-                        href="delete.php?id=<?= $row['id'] ?>"
-                        onclick="return confirm('Delete this file?')">
-                        <i class="fas fa-trash"></i>
-                        </a>
+        <a class="delete-btn"
+        href="delete.php?id=<?= $row['id'] ?>"
+        onclick="return confirm('Delete this file?')">
+            <i class="fas fa-trash"></i>
+        </a>
 
-                    </td>
+    </div>
+</td>
 
                 </tr>
 

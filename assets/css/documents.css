@@ -75,6 +75,70 @@ tbody tr:hover{
     margin-right:8px;
 }
 
+/* Action Column */
+td:last-child{
+    width:260px;
+}
+
+.action-buttons{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    flex-wrap:nowrap;
+}
+
+/* Common Button Style */
+.view-btn,
+.download-btn,
+.delete-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    height:38px;
+    border-radius:8px;
+    text-decoration:none;
+    color:#fff;
+    font-size:14px;
+    font-weight:500;
+    transition:all .25s ease;
+    box-shadow:0 2px 5px rgba(0,0,0,.08);
+}
+
+/* View */
+.view-btn{
+    background:#10b981;
+    padding:0 16px;
+}
+
+.view-btn:hover{
+    background:#059669;
+    transform:translateY(-2px);
+}
+
+/* Download */
+.download-btn{
+    background:#f59e0b;
+    padding:0 16px;
+}
+
+.download-btn:hover{
+    background:#d97706;
+    transform:translateY(-2px);
+}
+
+/* Delete */
+.delete-btn{
+    background:#ef4444;
+    width:38px;
+    padding:0;
+}
+
+.delete-btn:hover{
+    background:#dc2626;
+    transform:translateY(-2px);
+}
+
 .view-btn{
     background:#10b981;
     color:white;
@@ -158,21 +222,6 @@ tbody tr:hover{
 
 @media (max-width:768px){
 
-    body{
-        padding:15px;
-    }
-
-    .page-header{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:15px;
-    }
-
-    .back-btn{
-        width:100%;
-        justify-content:center;
-    }
-
     table,
     thead,
     tbody,
@@ -198,7 +247,6 @@ tbody tr:hover{
     td{
         border:none;
         padding:8px 0;
-        text-align:left;
     }
 
     td:nth-child(1)::before{
@@ -217,17 +265,30 @@ tbody tr:hover{
     }
 
     td:nth-child(4)::before{
-        content:"Action: ";
-        font-weight:600;
+        content:"Action:";
         display:block;
-        margin-bottom:8px;
+        font-weight:600;
+        margin-bottom:10px;
+    }
+
+    /* Responsive Action Buttons */
+    .action-buttons{
+        display:flex;
+        gap:8px;
+        flex-wrap:wrap;
     }
 
     .view-btn,
-    .download-btn,
+    .download-btn{
+        flex:1;
+        min-width:0;
+        padding:10px 12px;
+        justify-content:center;
+    }
+
     .delete-btn{
-        display:inline-block;
-        margin-top:5px;
-        margin-right:5px;
+        width:42px;
+        min-width:42px;
+        flex-shrink:0;
     }
 }
