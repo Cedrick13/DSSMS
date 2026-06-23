@@ -1,3 +1,7 @@
+<?php
+$base_url = "/DSSMS/";
+?>
+
 <div class="sidebar" id="sidebar">
 
     <div class="logo">
@@ -9,7 +13,7 @@
 
     <ul class="menu">
         <li>
-            <a href="dashboard.php">
+            <a href="<?= $base_url ?>dashboard.php">
                 <span class="icon">🏠</span>
                 <span class="text">Dashboard</span>
             </a>
@@ -23,27 +27,27 @@
             </a>
 
             <ul class="submenu">
-                <li><a href="modules/users/add.php">Add User</a></li>
-                <li><a href="modules/users/index.php">Manage Users</a></li>
+                <li><a href="<?= $base_url ?>modules/users/add.php">Add User</a></li>
+                <li><a href="<?= $base_url ?>modules/users/index.php">Manage Users</a></li>
             </ul>
         </li>
 
         <li>
-            <a href="modules/documents/index.php">
+            <a href="<?= $base_url ?>modules/documents/index.php">
                 <span class="icon">📄</span>
                 <span class="text">Documents</span>
             </a>
         </li>
 
         <li>
-            <a href="modules/categories/index.php">
+            <a href="<?= $base_url ?>modules/categories/index.php">
                 <span class="icon">📁</span>
                 <span class="text">Categories</span>
             </a>
         </li>
 
         <li>
-            <a href="modules/reports/daily.php">
+            <a href="<?= $base_url ?>modules/reports/daily.php">
                 <span class="icon">📊</span>
                 <span class="text">Reports</span>
             </a>
@@ -54,7 +58,7 @@
 
     <ul class="menu">
         <li>
-            <a href="logout.php">
+            <a href="<?= $base_url ?>logout.php">
                 <span class="icon">🚪</span>
                 <span class="text">Logout</span>
             </a>

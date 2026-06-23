@@ -12,7 +12,14 @@ body{
 
 /* Dashboard */
 .main-content{
-    padding:20px;
+    flex:1;
+    margin-left:260px;
+    padding:30px;
+    transition:all .3s ease;
+}
+
+.sidebar.collapsed ~ .main-content{
+    margin-left:80px;
 }
 
 .dashboard-cards{
@@ -149,13 +156,18 @@ body{
 
 .sidebar{
     width:260px;
-    height:100vh;
+    min-height:100vh;
     background:#fff;
     box-shadow:0 0 15px rgba(0,0,0,.1);
     padding:20px;
 
     display:flex;
     flex-direction:column;
+
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
 }
 
 .sidebar.collapsed{
@@ -264,11 +276,6 @@ body{
 .submenu a{
     padding:8px;
     font-size:14px;
-}
-
-.main-content{
-    flex:1;
-    padding:30px;
 }
 
 .sidebar.collapsed .text,

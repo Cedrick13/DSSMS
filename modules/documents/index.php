@@ -13,37 +13,37 @@ $query = mysqli_query($conn,"
 <html>
 <head>
     <title>Documents</title>
+
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
     <link rel="stylesheet" href="../../assets/css/documents.css">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
+<?php include '../../includes/sidebar.php'; ?>
+
+<div class="main-content">
+
 <div class="documents-container">
 
     <div class="page-header">
-    
-    <h2>
-        <i class="fas fa-folder-open"></i>
-        Documents
-    </h2>
 
-    <a href="../../dashboard.php" class="back-btn">
-        <i class="fas fa-arrow-left"></i>
-        Back
-    </a>
+        <h2>
+            <i class="fas fa-folder-open"></i>
+            Documents
+        </h2>
 
-</div>
+    </div>
 
     <div class="table-card">
 
-    <div class="search-box">
-    <input type="text"
-           id="searchInput"
-           placeholder="🔍 Search document...">
-</div>
+        <div class="search-box">
+            <input type="text"
+                   id="searchInput"
+                   placeholder="🔍 Search document...">
+        </div>
 
         <table>
             <thead>
@@ -61,26 +61,26 @@ $query = mysqli_query($conn,"
 
                 <tr>
 
-                  <td>
+                    <td>
 
-<?php
-$ext = strtoupper(
-    pathinfo(
-        $row['file_name'],
-        PATHINFO_EXTENSION
-    )
-);
-?>
+                    <?php
+                    $ext = strtoupper(
+                        pathinfo(
+                            $row['file_name'],
+                            PATHINFO_EXTENSION
+                        )
+                    );
+                    ?>
 
-<i class="fas fa-file-alt file-icon"></i>
+                    <i class="fas fa-file-alt file-icon"></i>
 
-<?= htmlspecialchars($row['file_name']) ?>
+                    <?= htmlspecialchars($row['file_name']) ?>
 
-<span class="badge">
-    <?= $ext ?>
-</span>
+                    <span class="badge">
+                        <?= $ext ?>
+                    </span>
 
-</td>
+                    </td>
 
                     <td>
                         <?= htmlspecialchars($row['username']) ?>
@@ -91,33 +91,27 @@ $ext = strtoupper(
                         strtotime($row['upload_date'])) ?>
                     </td>
 
-                 <td>
+                    <td>
 
-<a class="view-btn"
-   href="../../assets/uploads/documents/<?= $row['file_path'] ?>"
-   target="_blank">
+                        <a class="view-btn"
+                        href="../../assets/uploads/documents/<?= $row['file_path'] ?>"
+                        target="_blank">
+                        <i class="fas fa-eye"></i> View
+                        </a>
 
-   <i class="fas fa-eye"></i>
-   View
+                        <a class="download-btn"
+                        href="../../assets/uploads/documents/<?= $row['file_path'] ?>"
+                        download>
+                        <i class="fas fa-download"></i> Download
+                        </a>
 
-</a>
+                        <a class="delete-btn"
+                        href="delete.php?id=<?= $row['id'] ?>"
+                        onclick="return confirm('Delete this file?')">
+                        <i class="fas fa-trash"></i>
+                        </a>
 
-<a class="download-btn"
-   href="../../assets/uploads/documents/<?= $row['file_path'] ?>"
-   download>
-
-   <i class="fas fa-download"></i>
-   Download
-
-</a>
-
-<a class="delete-btn"
-href="delete.php?id=<?= $row['id'] ?>"
-onclick="return confirm('Delete this file?')">
-<i class="fas fa-trash"></i>
-</a>
-
-</td>
+                    </td>
 
                 </tr>
 
@@ -131,6 +125,9 @@ onclick="return confirm('Delete this file?')">
 
 </div>
 
+</div>
+
+<script src="../../assets/js/main.js"></script>
 <script src="../../assets/js/documents.js"></script>
 
 </body>
