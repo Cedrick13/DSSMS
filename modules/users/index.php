@@ -4,33 +4,55 @@ include '../../config/database.php';
 $result = mysqli_query($conn,"SELECT * FROM users");
 ?>
 
-<h2>Users</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Users</title>
 
-<a href="add.php">+ Add User</a>
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+</head>
+<body>
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Full Name</th>
-        <th>Username</th>
-        <th>Role</th>
-        <th>Action</th>
-    </tr>
+<?php include '../../includes/sidebar.php'; ?>
 
-    <?php while($row=mysqli_fetch_assoc($result)){ ?>
+<div class="main-content">
 
-    <tr>
-        <td><?= $row['id']; ?></td>
-        <td><?= $row['fullname']; ?></td>
-        <td><?= $row['username']; ?></td>
-        <td><?= $row['role']; ?></td>
+    <h2>Users</h2>
 
-        <td>
-            <a href="edit.php?id=<?= $row['id']; ?>">Edit</a>
-            <a href="delete.php?id=<?= $row['id']; ?>">Delete</a>
-        </td>
-    </tr>
+    <a href="add.php">+ Add User</a>
 
-    <?php } ?>
+    <br><br>
 
-</table>
+    <table border="1" width="100%">
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+
+        <?php while($row=mysqli_fetch_assoc($result)){ ?>
+
+        <tr>
+            <td><?= $row['id']; ?></td>
+            <td><?= $row['fullname']; ?></td>
+            <td><?= $row['username']; ?></td>
+            <td><?= $row['role']; ?></td>
+
+            <td>
+                <a href="edit.php?id=<?= $row['id']; ?>">Edit</a>
+                <a href="delete.php?id=<?= $row['id']; ?>">Delete</a>
+            </td>
+        </tr>
+
+        <?php } ?>
+
+    </table>
+
+</div>
+
+<script src="../../assets/js/main.js"></script>
+
+</body>
+</html>

@@ -19,42 +19,56 @@ if(isset($_POST['save']))
 }
 ?>
 
-<h2>Add User</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add User</title>
 
-<form method="POST">
+    <link rel="stylesheet" href="../../assets/css/dashboard.css">
+</head>
+<body>
 
-    <label>Full Name</label><br>
-    <input type="text" name="fullname" required>
+<?php include '../../includes/sidebar.php'; ?>
 
-    <br><br>
+<div class="main-content">
 
-    <label>Username</label><br>
-    <input type="text" name="username" required>
+    <h2>Add User</h2>
 
-    <br><br>
+    <form method="POST">
 
-    <label>Password</label><br>
-    <input type="password" name="password" required>
+        <label>Full Name</label><br>
+        <input type="text" name="fullname" required>
 
-    <br><br>
+        <br><br>
 
-    <label>Role</label><br>
-    <select name="role">
+        <label>Username</label><br>
+        <input type="text" name="username" required>
 
-        <option value="Staff">
-            Staff
-        </option>
+        <br><br>
 
-        <option value="Admin">
-            Admin
-        </option>
+        <label>Password</label><br>
+        <input type="password" name="password" required>
 
-    </select>
+        <br><br>
 
-    <br><br>
+        <label>Role</label><br>
 
-    <button type="submit" name="save">
-        Save User
-    </button>
+        <select name="role">
+            <option value="Staff">Staff</option>
+            <option value="Admin">Admin</option>
+        </select>
 
-</form>
+        <br><br>
+
+        <button type="submit" name="save">
+            Save User
+        </button>
+
+    </form>
+
+</div>
+
+<script src="../../assets/js/main.js"></script>
+
+</body>
+</html>
