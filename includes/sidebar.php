@@ -5,7 +5,7 @@ $base_url = "/DSSMS/";
 <div class="sidebar" id="sidebar">
 
     <div class="logo">
-        <h2>DSSMS</h2>
+        <h2>Documents System</h2>
         <button id="toggleBtn">☰</button>
     </div>
 
