@@ -1,4 +1,8 @@
 <?php
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
+
 $base_url = "/DSSMS/";
 ?>
 
@@ -19,18 +23,22 @@ $base_url = "/DSSMS/";
             </a>
         </li>
 
-        <li class="menu-item has-submenu">
-            <a href="#">
-                <span class="icon">👤</span>
-                <span class="text">Users</span>
-                <span class="arrow">▼</span>
-            </a>
+      <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'Admin'){ ?>
 
-            <ul class="submenu">
-                <li><a href="<?= $base_url ?>modules/users/add.php">Add User</a></li>
-                <li><a href="<?= $base_url ?>modules/users/index.php">Manage Users</a></li>
-            </ul>
-        </li>
+<li class="menu-item has-submenu">
+    <a href="#">
+        <span class="icon">👤</span>
+        <span class="text">Users</span>
+        <span class="arrow">▼</span>
+    </a>
+
+    <ul class="submenu">
+        <li><a href="<?= $base_url ?>modules/users/add.php">Add User</a></li>
+        <li><a href="<?= $base_url ?>modules/users/index.php">Manage Users</a></li>
+    </ul>
+</li>
+
+<?php } ?>
 
         <li>
             <a href="<?= $base_url ?>modules/documents/index.php">
