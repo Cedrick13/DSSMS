@@ -80,7 +80,7 @@ include 'includes/sidebar.php';
         <h3>Recent Documents</h3>
 
         <div class="table-actions">
-            <input type="text" placeholder="Search...">
+            <input type="text" placeholder="🔍 Search...">
             <button>Filters</button>
         </div>
     </div>

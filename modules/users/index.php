@@ -61,7 +61,7 @@ if(isset($_GET['success']) && $_GET['success'] == "deleted")
     <input
         type="text"
         id="searchInput"
-        placeholder="Search users...">
+        placeholder="🔍 Search users...">
 
 </div>
 
