@@ -220,6 +220,7 @@ td:last-child{
     background:#475569;
 }
 
+/* Responsive Styles */
 @media (max-width:768px){
 
     table,
