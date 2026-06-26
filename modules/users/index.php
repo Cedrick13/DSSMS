@@ -43,13 +43,33 @@ if(isset($_GET['success']) && $_GET['success'] == "deleted")
 
 <?php } ?>
 
-    <h2>Users</h2>
+    <div class="page-header">
 
-    <a href="add.php">+ Add User</a>
+    <div>
+        <h2>Users</h2>
+        <p>Manage system user accounts.</p>
+    </div>
 
-    <br><br>
+    <a href="add.php" class="add-btn">
+        + Add User
+    </a>
 
-    <table border="1" width="100%">
+</div>
+
+<div class="table-toolbar">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search users...">
+
+</div>
+
+<div class="table-card">
+
+<table class="users-table">
+
+    <thead>
         <tr>
             <th>ID</th>
             <th>Full Name</th>
@@ -57,8 +77,11 @@ if(isset($_GET['success']) && $_GET['success'] == "deleted")
             <th>Role</th>
             <th>Action</th>
         </tr>
+    </thead>
 
-        <?php while($row=mysqli_fetch_assoc($result)){ ?>
+    <tbody>
+
+    <?php while($row = mysqli_fetch_assoc($result)){ ?>
 
         <tr>
             <td><?= $row['id']; ?></td>
@@ -67,14 +90,30 @@ if(isset($_GET['success']) && $_GET['success'] == "deleted")
             <td><?= $row['role']; ?></td>
 
             <td>
-                <a href="edit.php?id=<?= $row['id']; ?>">Edit</a>
-                <a href="delete.php?id=<?= $row['id']; ?>">Delete</a>
+
+                <a
+                    class="edit-btn"
+                    href="edit.php?id=<?= $row['id']; ?>">
+                    Edit
+                </a>
+
+                <a
+                    class="delete-btn"
+                    href="delete.php?id=<?= $row['id']; ?>"
+                    onclick="return confirm('Delete this user?')">
+                    Delete
+                </a>
+
             </td>
         </tr>
 
-        <?php } ?>
+    <?php } ?>
 
-    </table>
+    </tbody>
+
+</table>
+
+</div>
 
 </div>
 
