@@ -2,6 +2,24 @@
 include '../../config/database.php';
 
 $result = mysqli_query($conn,"SELECT * FROM users");
+
+$success = "";
+
+if(isset($_GET['success']) && $_GET['success'] == "added")
+{
+    $success = "User added successfully!";
+}
+
+if(isset($_GET['success']) && $_GET['success'] == "updated")
+{
+    $success = "User updated successfully!";
+}
+
+if(isset($_GET['success']) && $_GET['success'] == "deleted")
+{
+    $success = "User deleted successfully!";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +34,14 @@ $result = mysqli_query($conn,"SELECT * FROM users");
 <?php include '../../includes/sidebar.php'; ?>
 
 <div class="main-content">
+
+<?php if($success != ""){ ?>
+
+<div class="alert-success">
+    <?= $success; ?>
+</div>
+
+<?php } ?>
 
     <h2>Users</h2>
 
@@ -53,6 +79,7 @@ $result = mysqli_query($conn,"SELECT * FROM users");
 </div>
 
 <script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/users.js"></script>
 
 </body>
 </html>
