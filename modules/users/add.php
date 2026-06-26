@@ -25,46 +25,82 @@ if(isset($_POST['save']))
     <title>Add User</title>
 
     <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/users.css">
 </head>
 <body>
 
 <?php include '../../includes/sidebar.php'; ?>
 
-<div class="main-content">
+<<div class="main-content">
 
-    <h2>Add User</h2>
+    <div class="page-header">
+        <h2>Add User</h2>
+        <p>Create a new system user account.</p>
+    </div>
 
-    <form method="POST">
+    <div class="user-card">
 
-        <label>Full Name</label><br>
-        <input type="text" name="fullname" required>
+        <form method="POST">
 
-        <br><br>
+            <div class="form-group">
+                <label>Full Name</label>
+                <input
+                    type="text"
+                    name="fullname"
+                    placeholder="Enter full name"
+                    required>
+            </div>
 
-        <label>Username</label><br>
-        <input type="text" name="username" required>
+            <div class="form-group">
+                <label>Username</label>
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter username"
+                    required>
+            </div>
 
-        <br><br>
+            <div class="form-group">
+                <label>Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter password"
+                    required>
+            </div>
 
-        <label>Password</label><br>
-        <input type="password" name="password" required>
+            <div class="form-group">
+                <label>Role</label>
 
-        <br><br>
+                <select name="role">
 
-        <label>Role</label><br>
+                    <option value="Staff">Staff</option>
 
-        <select name="role">
-            <option value="Staff">Staff</option>
-            <option value="Admin">Admin</option>
-        </select>
+                    <option value="Admin">Admin</option>
 
-        <br><br>
+                </select>
+            </div>
 
-        <button type="submit" name="save">
-            Save User
-        </button>
+            <div class="button-group">
 
-    </form>
+                <a href="index.php" class="cancel-btn">
+                    Cancel
+                </a>
+
+                <button
+                    type="submit"
+                    name="save"
+                    class="save-btn">
+
+                    Save User
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
 
 </div>
 
