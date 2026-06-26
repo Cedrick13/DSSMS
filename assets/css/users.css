@@ -137,3 +137,12 @@
     background:#2d6cdf;
 
 }
+
+.alert-error{
+    background:#ffe5e5;
+    color:#d93025;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:20px;
+    border-left:5px solid #d93025;
+}

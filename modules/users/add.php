@@ -8,6 +8,15 @@ if(isset($_POST['save']))
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $role = $_POST['role'];
 
+// Check if username already exists
+$check = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'");
+
+if(mysqli_num_rows($check) > 0)
+{
+    $error = "Username already exists!";
+}
+else
+{
     mysqli_query($conn,"
         INSERT INTO users
         (fullname,username,password,role)
@@ -15,7 +24,9 @@ if(isset($_POST['save']))
         ('$fullname','$username','$password','$role')
     ");
 
-    header("Location:index.php");
+    header("Location:index.php?success=added");
+    exit();
+}
 }
 ?>
 
@@ -41,6 +52,14 @@ if(isset($_POST['save']))
     <div class="user-card">
 
         <form method="POST">
+
+<?php if(isset($error)){ ?>
+
+<div class="alert-error">
+    <?= $error ?>
+</div>
+
+<?php } ?>
 
             <div class="form-group">
                 <label>Full Name</label>
