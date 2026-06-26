@@ -47,7 +47,7 @@ if(isset($_GET['success']) && $_GET['success'] == "deleted")
 
     <div>
         <h2>Users</h2>
-        <p>Manage system user accounts.</p>
+        <!-- <p>Manage system user accounts.</p> -->
     </div>
 
     <a href="add.php" class="add-btn">

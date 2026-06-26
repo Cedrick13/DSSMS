@@ -269,6 +269,7 @@ body{
     z-index:999;
 }
 
+/* Style submenu items */
 .submenu li{
     list-style:none;
 }
@@ -307,6 +308,7 @@ body{
     font-size:10px;
 }
 
+/* USERS MODULE */
 .page-header{
     display:flex;
     justify-content:space-between;
