@@ -138,6 +138,7 @@
 
 }
 
+/* ALERT ERROR */
 .alert-error{
     background:#ffe5e5;
     color:#d93025;
@@ -147,6 +148,7 @@
     border-left:5px solid #d93025;
 }
 
+/* ALERT SUCCESS */
 .alert-success{
     background:#d1e7dd;
     color:#0f5132;
