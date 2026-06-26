@@ -46,7 +46,7 @@ else
 
     <div class="page-header">
         <h2>Add User</h2>
-        <p>Create a new system user account.</p>
+        <!--<p>Create a new system user account.</p>-->
     </div>
 
     <div class="user-card">
