@@ -80,12 +80,12 @@ include 'includes/sidebar.php';
         <h3>Recent Documents</h3>
 
         <div class="table-actions">
-            <input type="text" placeholder="🔍 Search...">
+            <input type="text" id="searchInput" placeholder="🔍 Search...">
             <button>Filters</button>
         </div>
     </div>
 
-    <table class="documents-table">
+    <table class="documents-table" id="documentsTable">
         <thead>
             <tr>
                 <th>File Name</th>
