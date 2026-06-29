@@ -1,3 +1,4 @@
+// Toggle sidebar functionality
 const sidebar = document.getElementById("sidebar");
 const toggleBtn = document.getElementById("toggleBtn");
 
@@ -12,6 +13,7 @@ document.querySelectorAll('.has-submenu > a').forEach(item => {
     });
 });
 
+// Search functionality for documents table
 document.addEventListener("DOMContentLoaded", function () {
 
     const searchInput = document.getElementById("searchInput");
