@@ -81,7 +81,7 @@ include 'includes/sidebar.php';
 
         <div class="table-actions">
             <input type="text" id="searchInput" placeholder="🔍 Search...">
-            <button>Filters</button>
+            <!-- <button>Filters</button> -->
         </div>
     </div>
 
