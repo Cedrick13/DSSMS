@@ -16,17 +16,12 @@ $base_url = "/DSSMS/";
 <div class="user-info">
 
     <div class="user-avatar">
-        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-user-shield"></i>
     </div>
 
     <div class="user-details">
-        <h4>
-            <?= isset($_SESSION['fullname']) ? $_SESSION['fullname'] : 'Guest'; ?>
-        </h4>
-
-        <small>
-            <?= isset($_SESSION['role']) ? $_SESSION['role'] : ''; ?>
-        </small>
+        <h4><?= $_SESSION['fullname']; ?></h4>
+        <small><?= $_SESSION['role']; ?></small>
     </div>
 
 </div>

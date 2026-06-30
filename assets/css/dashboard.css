@@ -430,3 +430,26 @@ body{
     color:#222;
     font-size:13px;
 }
+
+/* Hide user details when sidebar is collapsed */
+
+.sidebar.collapsed .user-details{
+    display:none;
+}
+
+/* Center the icon */
+
+.sidebar.collapsed .user-info{
+    justify-content:center;
+    padding:12px 0;
+    margin:15px auto;
+    background:transparent;
+}
+
+/* Make the avatar slightly smaller */
+
+.sidebar.collapsed .user-avatar{
+    width:45px;
+    height:45px;
+    margin:0;
+}
