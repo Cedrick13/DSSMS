@@ -21,7 +21,9 @@ include 'includes/sidebar.php';
 
 <div class="main-content">
 
-    <h2>Dashboard</h2>
+    <h2>
+        <i class="fas fa-list-alt"></i>
+        Dashboard</h2>
 
     <?php if(isset($_GET['upload'])): ?>
     <div class="success-msg">
