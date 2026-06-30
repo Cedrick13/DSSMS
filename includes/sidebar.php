@@ -9,9 +9,27 @@ $base_url = "/DSSMS/";
 <div class="sidebar" id="sidebar">
 
     <div class="logo">
-        <h2>Documents System</h2>
-        <button id="toggleBtn">☰</button>
+    <h2>Documents System</h2>
+    <button id="toggleBtn">☰</button>
+</div>
+
+<div class="user-info">
+
+    <div class="user-avatar">
+        <i class="fa-solid fa-user"></i>
     </div>
+
+    <div class="user-details">
+        <h4>
+            <?= isset($_SESSION['fullname']) ? $_SESSION['fullname'] : 'Guest'; ?>
+        </h4>
+
+        <small>
+            <?= isset($_SESSION['role']) ? $_SESSION['role'] : ''; ?>
+        </small>
+    </div>
+
+</div>
 
     <span class="menu-title">MAIN</span>
 
