@@ -37,6 +37,8 @@ else
 
     <link rel="stylesheet" href="../../assets/css/dashboard.css">
     <link rel="stylesheet" href="../../assets/css/users.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -45,7 +47,9 @@ else
 <<div class="main-content">
 
     <div class="page-header">
-        <h2>Add User</h2>
+        <h2>
+            <i class="fas fa-user-plus"></i>
+            Add User</h2>
         <!--<p>Create a new system user account.</p>-->
     </div>
 

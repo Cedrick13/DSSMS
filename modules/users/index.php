@@ -28,6 +28,8 @@ if(isset($_GET['success']) && $_GET['success'] == "deleted")
     <title>Users</title>
 
     <link rel="stylesheet" href="../../assets/css/dashboard.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -46,7 +48,9 @@ if(isset($_GET['success']) && $_GET['success'] == "deleted")
     <div class="page-header">
 
     <div>
-        <h2>Users</h2>
+        <h2>
+            <i class="fas fa-users"></i>
+            Users</h2>
         <!-- <p>Manage system user accounts.</p> -->
     </div>
 
