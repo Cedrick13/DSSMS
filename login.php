@@ -6,7 +6,7 @@ $error = "";
 
 if(isset($_POST['login'])){
 
-    $username = mysqli_real_escape_string($conn,$_POST['username']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = $_POST['password'];
 
     $query = mysqli_query($conn,
@@ -17,9 +17,8 @@ if(isset($_POST['login'])){
 
         $user = mysqli_fetch_assoc($query);
 
-        if($password == $user['password']){
-            // login success
-        }
+        if(password_verify($password, $user['password'])){
+
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['fullname'] = $user['fullname'];
             $_SESSION['role'] = $user['role'];
@@ -34,6 +33,7 @@ if(isset($_POST['login'])){
     }else{
         $error = "User not found";
     }
+}
 ?>
 
 <!DOCTYPE html>
