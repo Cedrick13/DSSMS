@@ -13,7 +13,9 @@ $totalUsers = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) AS total F
 $totalDocuments = mysqli_fetch_assoc(
     mysqli_query($conn,"SELECT COUNT(*) AS total FROM documents")
 )['total'];
-$totalCategories = 0;
+$totalCategories = mysqli_fetch_assoc(
+    mysqli_query($conn, "SELECT COUNT(*) AS total FROM categories")
+)['total'];
 
 include 'includes/header.php';
 include 'includes/sidebar.php';
