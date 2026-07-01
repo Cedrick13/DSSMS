@@ -68,7 +68,7 @@ $base_url = "/DSSMS/";
         </li>
 
         <li>
-            <a href="<?= $base_url ?>modules/reports/daily.php">
+            <a href="<?= $base_url ?>modules/reports/index.php">
                 <span class="icon">📊</span>
                 <span class="text">Reports</span>
             </a>
