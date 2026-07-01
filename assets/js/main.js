@@ -38,3 +38,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+
+const searchInput = document.getElementById("searchInput");
+
+if(searchInput){
+
+    searchInput.addEventListener("keyup", function(){
+
+        let search = this.value;
+
+        fetch("search_documents.php?search=" + encodeURIComponent(search))
+        .then(response => response.text())
+        .then(data => {
+
+            document.getElementById("documentsBody").innerHTML = data;
+
+        });
+
+    });
+
+}

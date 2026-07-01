@@ -128,7 +128,7 @@ required>
             </tr>
         </thead>
 
-        <tbody>
+        <tbody id="documentsBody">
 
         <?php
         $query = mysqli_query($conn,"
