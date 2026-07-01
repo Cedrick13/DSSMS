@@ -65,9 +65,37 @@ include 'includes/sidebar.php';
                 <i class="fas fa-cloud-upload-alt"></i>
                 <p>Drop files here</p>
 
-                <input type="file"
-                       name="document"
-                       required>
+                <div class="form-group">
+
+<label>Category</label>
+
+<select name="category_id" required>
+
+    <option value="">-- Select Category --</option>
+
+    <?php
+
+    $categories = mysqli_query($conn,"SELECT * FROM categories ORDER BY category_name ASC");
+
+    while($cat = mysqli_fetch_assoc($categories))
+    {
+
+    ?>
+
+        <option value="<?= $cat['category_id']; ?>">
+            <?= $cat['category_name']; ?>
+        </option>
+
+    <?php } ?>
+
+</select>
+
+</div>
+
+<input
+type="file"
+name="document"
+required>
 
                 <button type="submit">
                     Upload
