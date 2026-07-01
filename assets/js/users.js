@@ -1,3 +1,4 @@
+// assets/js/users.js
 document.addEventListener("DOMContentLoaded", function () {
 
     const successAlert = document.querySelector(".alert-success");
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
+// AJAX search functionality for users table
 document.addEventListener("DOMContentLoaded", function(){
 
     const search = document.getElementById("searchInput");
