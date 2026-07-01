@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-
+// AJAX search functionality for documents table
 const searchInput = document.getElementById("searchInput");
 
 if(searchInput){
