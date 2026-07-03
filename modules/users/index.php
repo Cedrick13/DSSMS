@@ -71,7 +71,7 @@ if(isset($_GET['success']) && $_GET['success'] == "deleted")
 
 <div class="table-card">
 
-<table class="users-table">
+<table class="users-table" id="usersTable">
 
     <thead>
         <tr>
@@ -93,22 +93,28 @@ if(isset($_GET['success']) && $_GET['success'] == "deleted")
             <td><?= $row['username']; ?></td>
             <td><?= $row['role']; ?></td>
 
-            <td>
+           <td class="action-column">
 
-                <a
-                    class="edit-btn"
-                    href="edit.php?id=<?= $row['id']; ?>">
-                    Edit
-                </a>
+<a
+href="edit.php?id=<?= $row['id']; ?>"
+class="icon-btn edit-btn"
+title="Edit">
 
-                <a
-                    class="delete-btn"
-                    href="delete.php?id=<?= $row['id']; ?>"
-                    onclick="return confirm('Delete this user?')">
-                    Delete
-                </a>
+<i class="fas fa-pen"></i>
 
-            </td>
+</a>
+
+<a
+href="delete.php?id=<?= $row['id']; ?>"
+class="icon-btn delete-btn"
+title="Delete"
+onclick="return confirm('Delete this user?')">
+
+<i class="fas fa-trash"></i>
+
+</a>
+
+</td>
         </tr>
 
     <?php } ?>
@@ -116,6 +122,38 @@ if(isset($_GET['success']) && $_GET['success'] == "deleted")
     </tbody>
 
 </table>
+
+<div class="table-footer">
+
+    <div class="entries">
+
+        Showing
+
+        <select id="rowsPerPage">
+            <option>10</option>
+            <option>20</option>
+            <option>50</option>
+        </select>
+
+    </div>
+
+    <div id="tableInfo"></div>
+
+    <div class="pagination">
+
+        <button id="prevBtn">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <span id="pageNumbers"></span>
+
+        <button id="nextBtn">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+    </div>
+
+</div>
 
 </div>
 
