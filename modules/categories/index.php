@@ -96,42 +96,44 @@ placeholder="🔍 Search categories...">
 
 <tbody>
 
-<?php while($row=mysqli_fetch_assoc($result)){ ?>
+<?php
+$no = 1;
+
+while($row = mysqli_fetch_assoc($result)){
+?>
 
 <tr>
 
-<td><?= $row['category_id']; ?></td>
+    <td><?= $no++; ?></td>
 
-<td><?= $row['category_name']; ?></td>
+    <td><?= $row['category_name']; ?></td>
 
-<td><?= $row['description']; ?></td>
+    <td><?= $row['description']; ?></td>
 
-<td class="action-column">
+    <td class="action-column">
 
-<a
-href="edit.php?id=<?= $row['category_id']; ?>"
-class="icon-btn edit-btn"
-title="Edit">
+        <a
+        href="edit.php?id=<?= $row['category_id']; ?>"
+        class="icon-btn edit-btn"
+        title="Edit">
+            <i class="fas fa-pen"></i>
+        </a>
 
-<i class="fas fa-pen"></i>
+        <a
+        href="delete.php?id=<?= $row['category_id']; ?>"
+        class="icon-btn delete-btn"
+        onclick="return confirm('Delete this category?')"
+        title="Delete">
+            <i class="fas fa-trash"></i>
+        </a>
 
-</a>
-
-<a
-href="delete.php?id=<?= $row['category_id']; ?>"
-class="icon-btn delete-btn"
-onclick="return confirm('Delete this category?')"
-title="Delete">
-
-<i class="fas fa-trash"></i>
-
-</a>
-
-</td>
+    </td>
 
 </tr>
 
-<?php } ?>
+<?php
+}
+?>
 
 </tbody>
 
