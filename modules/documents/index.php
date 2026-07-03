@@ -2,10 +2,16 @@
 include '../../config/database.php';
 
 $query = mysqli_query($conn,"
-    SELECT documents.*, users.username
-    FROM documents
-    LEFT JOIN users ON documents.user_id = users.id
-    ORDER BY documents.id DESC
+SELECT
+    documents.*,
+    users.username,
+    categories.category_name
+FROM documents
+LEFT JOIN users
+ON documents.user_id = users.id
+LEFT JOIN categories
+ON documents.category_id = categories.category_id
+ORDER BY documents.id DESC
 ");
 ?>
 
@@ -47,83 +53,131 @@ $query = mysqli_query($conn,"
 
         <table>
             <thead>
-                <tr>
-                    <th>File Name</th>
-                    <th>Uploaded By</th>
-                    <th>Date</th>
-                    <th>Action</th>
-                </tr>
+              <tr>
+    <th>No.</th>
+    <th>File Name</th>
+    <th>Category</th>
+    <th>Uploaded By</th>
+    <th>Date Uploaded</th>
+    <th>Action</th>
+</tr>
             </thead>
 
-            <tbody>
+           <tbody>
 
-            <?php while($row = mysqli_fetch_assoc($query)){ ?>
+<?php
+$no = 1;
 
-                <tr>
+while($row = mysqli_fetch_assoc($query)){
+?>
 
-                    <td>
+               <tr>
 
-                    <?php
-                    $ext = strtoupper(
-                        pathinfo(
-                            $row['file_name'],
-                            PATHINFO_EXTENSION
-                        )
-                    );
-                    ?>
+<td><?= $no++; ?></td>
 
-                    <i class="fas fa-file-alt file-icon"></i>
+<td>
 
-                    <?= htmlspecialchars($row['file_name']) ?>
+<?php
+$ext = strtoupper(pathinfo($row['file_name'], PATHINFO_EXTENSION));
+?>
 
-                    <span class="badge">
-                        <?= $ext ?>
-                    </span>
+<i class="fas fa-file-alt file-icon"></i>
 
-                    </td>
+<?= htmlspecialchars($row['file_name']) ?>
 
-                    <td>
-                        <?= htmlspecialchars($row['username']) ?>
-                    </td>
+<span class="badge">
+<?= $ext ?>
+</span>
 
-                    <td>
-                        <?= date('M d, Y h:i A',
-                        strtotime($row['upload_date'])) ?>
-                    </td>
-
-                <td>
-    <div class="action-buttons">
-
-        <a class="view-btn"
-        href="../../assets/uploads/documents/<?= $row['file_path'] ?>"
-        target="_blank">
-            <i class="fas fa-eye"></i>
-            View
-        </a>
-
-        <a class="download-btn"
-        href="../../assets/uploads/documents/<?= $row['file_path'] ?>"
-        download>
-            <i class="fas fa-download"></i>
-            Download
-        </a>
-
-        <a class="delete-btn"
-        href="delete.php?id=<?= $row['id'] ?>"
-        onclick="return confirm('Delete this file?')">
-            <i class="fas fa-trash"></i>
-        </a>
-
-    </div>
 </td>
 
-                </tr>
+<td>
+
+<?= $row['category_name'] ?: "No Category"; ?>
+
+</td>
+
+<td>
+
+<?= htmlspecialchars($row['username']) ?>
+
+</td>
+
+<td>
+
+<?= date("M d, Y h:i A", strtotime($row['upload_date'])) ?>
+
+</td>
+
+<td>
+
+<div class="action-buttons">
+
+<a class="view-btn"
+href="../../assets/uploads/documents/<?= $row['file_path']?>"
+target="_blank">
+<i class="fas fa-eye"></i>
+View
+</a>
+
+<a class="download-btn"
+href="../../assets/uploads/documents/<?= $row['file_path']?>"
+download>
+<i class="fas fa-download"></i>
+Download
+</a>
+
+<a class="delete-btn"
+href="delete.php?id=<?= $row['id']?>"
+onclick="return confirm('Delete this file?')">
+<i class="fas fa-trash"></i>
+</a>
+
+</div>
+
+</td>
+
+</tr>
 
             <?php } ?>
 
             </tbody>
 
         </table>
+
+  <div class="table-footer">
+
+    <div class="entries">
+
+        Show
+
+        <select id="entries">
+            <option>10</option>
+            <option>25</option>
+            <option>50</option>
+        </select>
+
+        Entries
+
+    </div>
+
+    <div class="records-info">
+
+        Showing 1 to 10 of 50 records
+
+    </div>
+
+    <div class="pagination">
+
+        <button>&laquo;</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button>&raquo;</button>
+
+    </div>
+
+</div>
 
     </div>
 
