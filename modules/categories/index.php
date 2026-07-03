@@ -76,7 +76,7 @@ placeholder="🔍 Search categories...">
 
 <div class="table-card">
 
-<table class="users-table">
+<table class="users-table" id="categoryTable">
 
 <thead>
 
@@ -106,19 +106,25 @@ placeholder="🔍 Search categories...">
 
 <td><?= $row['description']; ?></td>
 
-<td>
+<td class="action-column">
 
 <a
-class="edit-btn"
-href="edit.php?id=<?= $row['category_id']; ?>">
-Edit
+href="edit.php?id=<?= $row['category_id']; ?>"
+class="icon-btn edit-btn"
+title="Edit">
+
+<i class="fas fa-pen"></i>
+
 </a>
 
 <a
-class="delete-btn"
 href="delete.php?id=<?= $row['category_id']; ?>"
-onclick="return confirm('Delete this category?')">
-Delete
+class="icon-btn delete-btn"
+onclick="return confirm('Delete this category?')"
+title="Delete">
+
+<i class="fas fa-trash"></i>
+
 </a>
 
 </td>
@@ -131,11 +137,43 @@ Delete
 
 </table>
 
+<div class="table-footer">
+
+<div class="entries">
+
+Showing
+<select id="rowsPerPage">
+    <option>10</option>
+    <option>20</option>
+    <option>50</option>
+</select>
+
+</div>
+
+<div id="tableInfo"></div>
+
+<div class="pagination">
+
+<button id="prevBtn">
+<i class="fas fa-chevron-left"></i>
+</button>
+
+<span id="pageNumbers"></span>
+
+<button id="nextBtn">
+<i class="fas fa-chevron-right"></i>
+</button>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
 
 <script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/categories.js"></script>
 
 <script>
 
