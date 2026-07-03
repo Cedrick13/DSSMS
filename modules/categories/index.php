@@ -82,7 +82,7 @@ placeholder="🔍 Search categories...">
 
 <tr>
 
-<th>ID</th>
+<th>No.</th>
 
 <th>Category Name</th>
 
