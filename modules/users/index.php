@@ -75,7 +75,7 @@ if(isset($_GET['success']) && $_GET['success'] == "deleted")
 
     <thead>
         <tr>
-            <th>ID</th>
+            <th>No.</th>
             <th>Full Name</th>
             <th>Username</th>
             <th>Role</th>
@@ -83,43 +83,45 @@ if(isset($_GET['success']) && $_GET['success'] == "deleted")
         </tr>
     </thead>
 
-    <tbody>
+   <tbody>
 
-    <?php while($row = mysqli_fetch_assoc($result)){ ?>
+<?php
+$no = 1;
 
-        <tr>
-            <td><?= $row['id']; ?></td>
-            <td><?= $row['fullname']; ?></td>
-            <td><?= $row['username']; ?></td>
-            <td><?= $row['role']; ?></td>
+while($row = mysqli_fetch_assoc($result)){
+?>
 
-           <td class="action-column">
+<tr>
+    <td><?= $no++; ?></td>
+    <td><?= $row['fullname']; ?></td>
+    <td><?= $row['username']; ?></td>
+    <td><?= $row['role']; ?></td>
 
-<a
-href="edit.php?id=<?= $row['id']; ?>"
-class="icon-btn edit-btn"
-title="Edit">
+    <td class="action-column">
 
-<i class="fas fa-pen"></i>
+        <a
+        href="edit.php?id=<?= $row['id']; ?>"
+        class="icon-btn edit-btn"
+        title="Edit">
+            <i class="fas fa-pen"></i>
+        </a>
 
-</a>
+        <a
+        href="delete.php?id=<?= $row['id']; ?>"
+        class="icon-btn delete-btn"
+        title="Delete"
+        onclick="return confirm('Delete this user?')">
+            <i class="fas fa-trash"></i>
+        </a>
 
-<a
-href="delete.php?id=<?= $row['id']; ?>"
-class="icon-btn delete-btn"
-title="Delete"
-onclick="return confirm('Delete this user?')">
+    </td>
+</tr>
 
-<i class="fas fa-trash"></i>
+<?php
+}
+?>
 
-</a>
-
-</td>
-        </tr>
-
-    <?php } ?>
-
-    </tbody>
+</tbody>
 
 </table>
 
