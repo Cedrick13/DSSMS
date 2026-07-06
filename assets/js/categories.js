@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let perPage = parseInt(rowsPerPage.value);
 
-        let totalPages = Math.max(1, Math.ceil(filteredRows.length / perPage));
+        let totalPages = Math.ceil(filteredRows.length / perPage);
 
         if (currentPage > totalPages)
             currentPage = totalPages;
