@@ -33,14 +33,23 @@ document.addEventListener("DOMContentLoaded", function(){
 
             let rows = document.querySelectorAll(".users-table tbody tr");
 
-            rows.forEach(function(row){
+           rows.forEach(function(row){
 
-                row.style.display =
-                    row.innerText.toLowerCase().includes(value)
-                    ? ""
-                    : "none";
+    if(row.innerText.toLowerCase().includes(value)){
 
-            });
+        row.dataset.hidden = "false";
+
+    }else{
+
+        row.dataset.hidden = "true";
+
+    }
+
+});
+
+currentPage = 1;
+
+displayRows();
 
         });
 
@@ -63,52 +72,61 @@ if (table) {
 
     let currentPage = 1;
 
-    function displayRows() {
+   function displayRows() {
 
-        let perPage = parseInt(rowsPerPage.value);
+    let perPage = parseInt(rowsPerPage.value);
 
-        let start = (currentPage - 1) * perPage;
+    // Get only rows that match the search
+    let visibleRows = rows.filter(row => row.dataset.hidden != "true");
 
-        let end = start + perPage;
+    let start = (currentPage - 1) * perPage;
+    let end = start + perPage;
 
-        rows.forEach((row, index) => {
+    // Hide everything first
+    rows.forEach(row => row.style.display = "none");
 
-            row.style.display =
-                (index >= start && index < end) ? "" : "none";
+    // Show only current page of visible rows
+    visibleRows.slice(start, end).forEach(row => {
+        row.style.display = "";
+    });
 
-        });
+    tableInfo.innerHTML =
+        `Showing ${
+            visibleRows.length === 0 ? 0 : start + 1
+        } to ${
+            Math.min(end, visibleRows.length)
+        } of ${
+            visibleRows.length
+        } records`;
 
-        tableInfo.innerHTML =
-            `Showing ${rows.length === 0 ? 0 : start + 1} to ${Math.min(end, rows.length)} of ${rows.length} records`;
+    pageNumbers.innerHTML = "";
 
-        pageNumbers.innerHTML = "";
+    let totalPages = Math.ceil(visibleRows.length / perPage);
 
-        let totalPages = Math.ceil(rows.length / perPage);
+    for(let i = 1; i <= totalPages; i++){
 
-        for (let i = 1; i <= totalPages; i++) {
+        let btn = document.createElement("button");
 
-            let btn = document.createElement("button");
+        btn.className = "page-btn";
 
-            btn.className = "page-btn";
+        btn.innerText = i;
 
-            btn.innerText = i;
+        if(i == currentPage)
+            btn.classList.add("active");
 
-            if (i == currentPage)
-                btn.classList.add("active");
+        btn.onclick = function(){
 
-            btn.onclick = function () {
+            currentPage = i;
 
-                currentPage = i;
+            displayRows();
 
-                displayRows();
+        };
 
-            };
-
-            pageNumbers.appendChild(btn);
-
-        }
+        pageNumbers.appendChild(btn);
 
     }
+
+}
 
     rowsPerPage.onchange = function () {
 
