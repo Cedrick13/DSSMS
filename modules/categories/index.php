@@ -177,28 +177,6 @@ Showing
 <script src="../../assets/js/main.js"></script>
 <script src="../../assets/js/categories.js"></script>
 
-<script>
-
-const searchInput=document.getElementById("searchInput");
-
-searchInput.addEventListener("keyup",function(){
-
-let filter=this.value.toLowerCase();
-
-let rows=document.querySelectorAll(".users-table tbody tr");
-
-rows.forEach(function(row){
-
-let text=row.textContent.toLowerCase();
-
-row.style.display=text.includes(filter) ? "" : "none";
-
-});
-
-});
-
-</script>
-
 </body>
 
 </html>
